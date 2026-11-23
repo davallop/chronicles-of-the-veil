@@ -1010,3 +1010,116 @@ body[data-scene="settlement"] .forest-pines-far{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 330'%3E%3Cg fill='%230b0e0b'%3E%3Cpath d='M0 330V194h88v136H69v-99H20v99zm-8-136 52-45 53 45zM117 330V105h83v225h-18V145h-47v185zm6-225 35-66 36 66zM230 330V215h132v115h-25v-78h-81v78zm-9-115 75-48 76 48zM401 330V164h99v166h-19V205h-60v125zm-8-166 58-49 58 49zM520 330V232h40v98z'/%3E%3C/g%3E%3C/svg%3E");
 }
 body[data-scene="heights"] .forest-mist{opacity:.75;background:rgba(211,224,222,.15)}
+
+/* ============================================================
+   Strong visual identity for every region
+   These elements sit inside the playable UI so the difference
+   remains obvious even when large panels cover the backdrop.
+   ============================================================ */
+.realm-banner{
+  position:relative;min-height:148px;margin:0 0 15px;overflow:hidden;
+  display:flex;align-items:flex-end;gap:18px;padding:24px 27px;
+  border:1px solid var(--line-strong);border-radius:3px;
+  box-shadow:inset 0 0 0 3px rgba(4,6,4,.68),0 14px 34px rgba(0,0,0,.5);
+  isolation:isolate;
+}
+.realm-banner::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background-position:center;background-size:cover;
+}
+.realm-banner::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(3,5,4,.9) 0%,rgba(5,7,5,.5) 47%,rgba(4,5,4,.08) 100%),
+    linear-gradient(0deg,rgba(2,3,2,.73),transparent 72%);
+}
+.realm-emblem{
+  width:66px;height:66px;flex:0 0 66px;display:grid;place-items:center;
+  border:1px solid rgba(240,218,160,.5);border-radius:50%;font-size:34px;
+  background:radial-gradient(circle,rgba(61,53,34,.92),rgba(7,10,8,.96) 68%);
+  box-shadow:inset 0 0 0 3px rgba(5,7,5,.8),0 5px 16px rgba(0,0,0,.55);
+}
+.realm-copy{display:flex;flex-direction:column;min-width:0;text-shadow:0 2px 3px #000}
+.realm-copy>span{color:var(--gold-bright);font-size:9px;font-weight:700;letter-spacing:.24em}
+.realm-copy>b{font:700 clamp(24px,4vw,34px)/1.12 var(--serif);letter-spacing:.055em;color:#f0e8d3}
+.realm-copy>small{color:#d0c8b4;font-size:12px;margin-top:5px;max-width:570px}
+
+.realm-bosque::before{
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 240' preserveAspectRatio='none'%3E%3Cg fill='%23060d08'%3E%3Cpath d='M0 240V88h16v152zM8 0l-54 155H62zm132 240V121h13v119zm7-84L96 240h102zm151 84V73h17v167zm8-67l-64 67h128zm215 67V98h15v142zm7-72l-55 72h111zm184 72V63h18v177zm9-70l-72 70h144zm157 70V110h15v130zm7-69l-52 69h104z'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(circle at 75% 18%,rgba(199,210,183,.26),transparent 12%),
+    linear-gradient(135deg,#284638,#101d17 58%,#071009);
+}
+.realm-desierto::before{
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 240' preserveAspectRatio='none'%3E%3Cpath fill='%23452718' d='M0 146Q170 71 335 153t292 4q125-92 273-3v86H0z'/%3E%3Cpath fill='%23281910' d='M0 196q203-76 397-4t503-13v61H0z'/%3E%3Cg fill='%2318110d'%3E%3Cpath d='M691 164V65h60v99h-13V86h-34v78zM680 65h82l-18-18h-47z'/%3E%3Cpath d='M785 184V102h11v82zm-16-82h43l-14-23h-16z'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(circle at 76% 20%,#e0a45a 0 4%,rgba(224,164,90,.2) 5%,transparent 19%),
+    linear-gradient(145deg,#8b4f2c,#472719 58%,#1d130e);
+}
+.realm-cripta::before{
+  background-image:
+    linear-gradient(90deg,transparent 0 13%,rgba(4,8,10,.75) 13% 18%,transparent 18% 34%,rgba(4,8,10,.78) 34% 39%,transparent 39% 61%,rgba(4,8,10,.78) 61% 66%,transparent 66% 82%,rgba(4,8,10,.75) 82% 87%,transparent 87%),
+    radial-gradient(ellipse at 76% 76%,rgba(143,202,216,.31),transparent 22%),
+    linear-gradient(155deg,#39545f,#172a31 48%,#081015);
+}
+.realm-cripta::after{
+  background:
+    linear-gradient(115deg,rgba(3,5,6,.96),rgba(5,10,12,.52) 47%,rgba(6,15,18,.06)),
+    repeating-linear-gradient(0deg,transparent 0 29px,rgba(177,213,219,.08) 30px 31px);
+}
+.realm-pantano::before{
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 240' preserveAspectRatio='none'%3E%3Cg fill='%230a130b'%3E%3Cpath d='M91 240l16-184 15 184zm16-134L54 47l57 42 48-68-39 92zm226 134l14-141 14 141zm15-103l-49-41 52 23 39-58-30 78zm302 103l17-176 14 176zm18-129l-53-45 57 25 48-63-38 85z'/%3E%3C/g%3E%3Cpath fill='%235c7048' opacity='.28' d='M0 178q190-27 351 5t549-9v66H0z'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 72% 42%,rgba(190,208,134,.24),transparent 18%),
+    linear-gradient(145deg,#44563b,#202f22 55%,#0b150e);
+}
+.realm-islas::before{
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 240'%3E%3Cg fill='%23121e29'%3E%3Cpath d='M526 45h212l-55 42-44 122-39-116zM725 142h125l-34 28-24 68-22-65z'/%3E%3C/g%3E%3Cg fill='%23a8c3c8' opacity='.25'%3E%3Cellipse cx='632' cy='45' rx='106' ry='19'/%3E%3Cellipse cx='787' cy='142' rx='63' ry='13'/%3E%3Cellipse cx='300' cy='104' rx='122' ry='22'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(150deg,transparent 25%,rgba(182,126,199,.23) 43%,transparent 59%),
+    linear-gradient(145deg,#52788c,#283f56 56%,#172437);
+}
+.realm-ruinas::before{
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 240' preserveAspectRatio='none'%3E%3Cg fill='%23120e0b'%3E%3Cpath d='M0 240V112h102v128H84v-93H21v93zM-9 112l60-46 61 46zm143 128V56h92v184h-19V91h-54v149zm7-184 39-47 39 47zm125 184V139h139v101h-27v-69h-85v69zm-10-101 80-48 80 48zm193 101V84h112v156h-22V121h-68v119zm-9-156 65-49 65 49zm161 156V126h132v114h-26v-78h-80v78zm-10-114 76-52 76 52zm194 114V71h115v169h-22V108h-72v132zm-8-169 65-51 66 51z'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(circle at 78% 55%,rgba(207,103,52,.35),transparent 16%),
+    linear-gradient(145deg,#594235,#2a231e 58%,#120f0c);
+}
+
+/* The playable surfaces now inherit each region instead of staying black. */
+body[data-realm="bosque"] .story-card{
+  border-top:4px solid #739168;background:radial-gradient(circle at 50% 0,rgba(82,122,81,.22),transparent 46%),linear-gradient(145deg,#273326,#111811);
+}
+body[data-realm="bosque"] .story-choice{border-left:3px solid #587554;background:linear-gradient(90deg,rgba(70,105,65,.23),transparent 44%),linear-gradient(#2b3328,#141a14)}
+body[data-realm="desierto"] .story-card{
+  border-top:4px solid #c27d3f;background:radial-gradient(circle at 50% 0,rgba(190,112,54,.25),transparent 48%),linear-gradient(145deg,#403024,#1c1510);
+}
+body[data-realm="desierto"] .story-choice{border-left:3px solid #b36e34;background:linear-gradient(90deg,rgba(181,100,43,.25),transparent 44%),linear-gradient(#403126,#1d1712)}
+body[data-realm="cripta"] .story-card{
+  border-top:4px solid #7fa8b1;background:radial-gradient(circle at 50% 0,rgba(105,161,175,.25),transparent 46%),repeating-linear-gradient(0deg,transparent 0 31px,rgba(143,189,197,.025) 32px),linear-gradient(145deg,#25343a,#0d1417);
+}
+body[data-realm="cripta"] .story-choice{border-left:3px solid #6f9ba5;background:linear-gradient(90deg,rgba(82,140,153,.23),transparent 44%),linear-gradient(#29383d,#11191c)}
+body[data-realm="pantano"] .story-card{
+  border-top:4px solid #899d55;background:radial-gradient(circle at 50% 0,rgba(134,155,73,.23),transparent 46%),linear-gradient(145deg,#303a29,#111811);
+}
+body[data-realm="pantano"] .story-choice{border-left:3px solid #758749;background:linear-gradient(90deg,rgba(119,139,70,.25),transparent 44%),linear-gradient(#333b2b,#141a13)}
+body[data-realm="islas"] .story-card{
+  border-top:4px solid #889fba;background:radial-gradient(circle at 50% 0,rgba(121,144,184,.26),transparent 46%),linear-gradient(145deg,#2a3544,#111720);
+}
+body[data-realm="islas"] .story-choice{border-left:3px solid #7b8fb0;background:linear-gradient(90deg,rgba(103,123,168,.25),transparent 44%),linear-gradient(#2d3746,#121923)}
+body[data-realm="ruinas"] .story-card{
+  border-top:4px solid #a46f4d;background:radial-gradient(circle at 50% 0,rgba(165,91,52,.24),transparent 46%),repeating-linear-gradient(90deg,transparent 0 62px,rgba(169,121,82,.025) 63px),linear-gradient(145deg,#392e27,#171310);
+}
+body[data-realm="ruinas"] .story-choice{border-left:3px solid #936043;background:linear-gradient(90deg,rgba(151,78,43,.24),transparent 44%),linear-gradient(#3a302a,#191511)}
+
+body[data-realm="bosque"] .hud{border-bottom:3px solid #587654}
+body[data-realm="desierto"] .hud{border-bottom:3px solid #a96835;background:linear-gradient(#51402f,#1c1611)}
+body[data-realm="cripta"] .hud{border-bottom:3px solid #678f98;background:linear-gradient(#34434a,#11191c)}
+body[data-realm="pantano"] .hud{border-bottom:3px solid #748549;background:linear-gradient(#3b4633,#141a13)}
+body[data-realm="islas"] .hud{border-bottom:3px solid #7185a6;background:linear-gradient(#3a4454,#141b25)}
+body[data-realm="ruinas"] .hud{border-bottom:3px solid #87583f;background:linear-gradient(#463a32,#191511)}
+
+@media(max-width:600px){
+  .realm-banner{min-height:125px;padding:18px;gap:13px}
+  .realm-emblem{width:54px;height:54px;flex-basis:54px;font-size:27px}
+  .realm-copy>small{display:none}
+}
