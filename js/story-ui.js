@@ -211,5 +211,27 @@
   U.actions["start-game"]=()=>{oldStart();};
 
   const baseAfter=U.afterRender;
-  U.afterRender=function(){baseAfter();document.documentElement.lang="en";};
+  U.afterRender=function(){
+    baseAfter();
+    document.documentElement.lang="en";
+
+    /* Let the scenery follow the current setting, including its live
+       preview during character creation. A few scene words can further
+       refine the atmosphere when the story moves indoors. */
+    const game=RPG.game;
+    const scenario=(U.mode==="creation"&&U.creation&&U.creation.scenarioId)
+      ||(game&&game.build&&game.build.scenarioId)
+      ||"bosque";
+    document.body.dataset.realm=scenario;
+
+    const visibleStory=document.querySelector(".story-card");
+    const sceneText=visibleStory?visibleStory.textContent.toLowerCase():"";
+    let scene="";
+    if(/\b(cave|cavern|tunnel|mine|underground|grotto)\b/.test(sceneText)) scene="cave";
+    else if(/\b(tavern|inn|market|street|city|palace|court|village)\b/.test(sceneText)) scene="settlement";
+    else if(/\b(temple|crypt|tomb|catacomb|altar)\b/.test(sceneText)) scene="sanctum";
+    else if(/\b(ship|sky|cloud|island|cliff)\b/.test(sceneText)) scene="heights";
+    if(scene) document.body.dataset.scene=scene;
+    else delete document.body.dataset.scene;
+  };
 })();
