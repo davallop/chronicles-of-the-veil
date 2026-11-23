@@ -105,10 +105,19 @@
     return h;
   };
 
+  function realmBanner(g){
+    const scen=D.byId.scenarios[g.build.scenarioId];
+    return `<section class="realm-banner realm-${esc(scen.id)}" aria-label="Current setting: ${esc(scen.name)}">
+      <div class="realm-emblem">${scen.icon}</div>
+      <div class="realm-copy"><span>CURRENT REGION</span><b>${esc(scen.name)}</b><small>${esc(scen.greeting)}</small></div>
+    </section>`;
+  }
+
   U.renderStory=function(g){
     const s=E.currentStory(g),st=g.story,len=D.byId.lengths[g.build.lengthId],scen=D.byId.scenarios[g.build.scenarioId];
     const count=st.turn+1,progress=len.storyTurns?Math.min(100,Math.round(count/len.storyTurns*100)):null;
     return `<div class="story-screen screen-narrow">
+      ${realmBanner(g)}
       <div class="story-context">
         <span>${scen.icon} ${esc(scen.name)}</span><span class="spacer"></span>
         <span>${len.storyTurns?`Scene ${count} of ${len.storyTurns}`:`Scene ${count} · Unlimited story`}</span>
@@ -131,6 +140,7 @@
   U.renderStoryResult=function(g){
     const p=g.pending||{},lines=p.lines||[];
     return `<div class="story-screen screen-narrow">
+      ${realmBanner(g)}
       <article class="story-card result">
         <div class="story-icon">${p.icon||"📜"}</div><div class="eyebrow">${esc(p.chapter||"CONSEQUENCE")}</div>
         ${p.questTitle?`<div class="story-quest-title">${esc(p.questTitle)} · CONSEQUENCE</div>`:""}
